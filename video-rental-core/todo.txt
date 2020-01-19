@@ -1,0 +1,14 @@
+-> things to build
+		(V) == done
+date serializer
+custom annotation (V)
+simple spring cloud rebbit messaging (V)
+error handling rabbit spring cloud
+convert list to json postgres database (V)
+convert whole table to json postgres
+use jackson to query results
+criteria query (V)
+specification query (V)
+build specicification from pattern
+custom exception with message
+location language custom exceptions

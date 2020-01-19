@@ -1,0 +1,38 @@
+version: '3'
+
+volumes:
+
+  video-rental-pg-data: {}
+  video-rental-rabbitmq-data: {}
+
+services:
+
+  video-rental-postgres:
+    image: sameersbn/postgresql:10-1
+    restart: always
+    environment:
+      DB_NAME: video-rental-core, video-rental-query, video-rental-query-dev,video-rental-core-dev
+      DB_USER: dev
+      DB_PASS: dev
+      PG_PASSWORD: elias@123
+    ports:
+      - 5432:5432
+    volumes:
+      - video-rental-pg-data:/var/lib/postgresql
+
+  video-rental-pg-admin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: silva.elias@totvs.com.br
+      PGADMIN_DEFAULT_PASSWORD: silva.elias
+    ports:
+      - 8787:87
+
+  video-rental-rabbitmq:
+    image: rabbitmq:3.7.7-management
+    volumes:
+      - video-rental-rabbitmq-data:/var/lib/rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+      
